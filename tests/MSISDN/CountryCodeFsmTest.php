@@ -20,23 +20,4 @@ class CountryCodeFsmTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->fsm->isFinalState());
         $this->assertEquals('AC', $this->fsm->getFinalState());
     }
-
-    /**
-     * @expectedException LogicException
-     */
-    public function testTransitionToInvalidStateException()
-    {
-        $this->fsm->transition(2);
-        $this->fsm->transition(1);
-        $this->fsm->transition(5);
-    }
-
-    /**
-     * @expectedException LogicException
-     */
-    public function testGetFinalStateInNonFinalStateException()
-    {
-        $this->fsm->transition(2);
-        $this->fsm->getFinalState();
-    }
 }
