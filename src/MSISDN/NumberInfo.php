@@ -10,11 +10,14 @@ class NumberInfo
 
     private $countryIdentifier;
 
-    public function __construct($countryDialingCode, $subscriberNumber, $countryIdentifier)
+    private $carrier;
+
+    public function __construct($countryDialingCode, $subscriberNumber, $countryIdentifier, $carrier)
     {
         $this->countryDialingCode = $countryDialingCode;
         $this->subscriberNumber = $subscriberNumber;
         $this->countryIdentifier = $countryIdentifier;
+        $this->carrier = $carrier;
     }
 
     public function getCountryDialingCode()
@@ -30,5 +33,10 @@ class NumberInfo
     public function getCountryIdentifier()
     {
         return $this->countryIdentifier;
+    }
+
+    public function getCarrier()
+    {
+        return $this->carrier;
     }
 }

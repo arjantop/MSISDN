@@ -1,14 +1,18 @@
 <?php
 
-namespace MSISDN\Country;
+namespace MSISDN\Carrier;
 
-class CountryCodeFsm
+class CarrierFsm
 {
     private $currentState;
 
-    public function __construct()
+    public function __construct($dialingCode)
     {
-        $this->currentState = &self::$fsmArray;
+        if (!array_key_exists($dialingCode, self::$fsmArray)) {
+            $this->currentState = [];
+        } else {
+            $this->currentState = &self::$fsmArray[$dialingCode];
+        }
     }
 
     public function transition($state)
@@ -33,4 +37,4 @@ class CountryCodeFsm
         return is_string($this->currentState);
     }
 
-    private static $fsmArray =
+    private static $fsmArray = 

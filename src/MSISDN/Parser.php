@@ -16,10 +16,13 @@ class Parser
         $countryInfo = $extractor->extractCountryInfo(substr($msisdn, 1));
         $subscriberNumber = substr($msisdn, strlen($countryInfo->getDialingCode()) + 1);
 
+        $carrierExtractor = new \MSISDN\Carrier\Extractor;
+
         return new NumberInfo(
             $countryInfo->getDialingCode(),
             $subscriberNumber,
-            $countryInfo->getIdentifier()
+            $countryInfo->getIdentifier(),
+            $carrierExtractor->getCarrier($countryInfo->getDialingCode(), $subscriberNumber)
         );
     }
 }
