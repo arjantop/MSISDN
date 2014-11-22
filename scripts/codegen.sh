@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-DST_COUNTRY=src/MSISDN/Country
-DST_CARRIER=src/MSISDN/Carrier
+GEN_DIR=gen/Gen
+DST_COUNTRY=$GEN_DIR/Country
+DST_CARRIER=$GEN_DIR/Carrier
 
 mkdir -p tmp
 svn checkout http://libphonenumber.googlecode.com/svn/trunk/ tmp/libphonenumber-read-only

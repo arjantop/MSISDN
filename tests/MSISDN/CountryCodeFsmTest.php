@@ -6,7 +6,7 @@ class CountryCodeFsmTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->fsm = new \MSISDN\Country\CountryCodeFsm;
+        $this->fsm = new \Gen\Country\CountryCodeFsm;
     }
 
     public function testFsmFinalState()

@@ -7,7 +7,7 @@ class InfoExtractor
     public function extractCountryInfo($msisdn)
     {
         $dialingCode = [];
-        $fsm = new CountryCodeFsm;
+        $fsm = new \Gen\Country\CountryCodeFsm;
         for ($i=0; $i<strlen($msisdn); $i++) {
             $digit = $msisdn[$i];
 

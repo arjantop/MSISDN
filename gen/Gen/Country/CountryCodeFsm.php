@@ -1,6 +1,6 @@
 <?php
 
-namespace MSISDN\Country;
+namespace Gen\Country;
 
 class CountryCodeFsm extends \Util\Fsm
 {

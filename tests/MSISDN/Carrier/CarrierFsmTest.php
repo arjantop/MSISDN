@@ -4,7 +4,7 @@ class CarrierFsmTest extends PHPUnit_Framework_TestCase
 {
     public function testFsmFinalState()
     {
-        $fsm = new \MSISDN\Carrier\CarrierFsm('386');
+        $fsm = new \Gen\Carrier\CarrierFsm('386');
         $this->assertFalse($fsm->isFinalState());
         $fsm->transition(4);
         $this->assertFalse($fsm->isFinalState());
@@ -18,7 +18,7 @@ class CarrierFsmTest extends PHPUnit_Framework_TestCase
      */
     public function testFsmInvalidCountryCode()
     {
-        $fsm = new \MSISDN\Carrier\CarrierFsm('11');
+        $fsm = new \Gen\Carrier\CarrierFsm('11');
         $fsm->transition(4);
     }
 }

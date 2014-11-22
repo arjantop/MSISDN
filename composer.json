@@ -1,6 +1,7 @@
 {
     "autoload": {
         "psr-0": {
+            "Gen\\": "gen/",
             "": "src/"
         }
     },

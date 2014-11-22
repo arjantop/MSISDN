@@ -1,6 +1,6 @@
 <?php
 
-namespace MSISDN\Carrier;
+namespace Gen\Carrier;
 
 class CarrierFsm extends \Util\Fsm
 {
