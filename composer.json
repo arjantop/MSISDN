@@ -4,8 +4,13 @@
             "": "src/"
         }
     },
+    "require": {
+        "zendframework/zend-json": "2.3.*",
+        "zendframework/zend-server": "2.3.*"
+    },
     "require-dev": {
         "phpunit/phpunit": "4.3.*",
+        "mockery/mockery": "@stable",
         "squizlabs/php_codesniffer": "*",
         "phpmd/phpmd" : "@stable",
         "sebastian/phpcpd": "*"

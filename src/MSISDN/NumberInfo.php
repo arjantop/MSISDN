@@ -39,4 +39,17 @@ class NumberInfo
     {
         return $this->carrier;
     }
+
+    public function toArray()
+    {
+        $result = [
+            'dialingCode' => $this->getCountryDialingCode(),
+            'subscriberNumber' => $this->getSubscriberNumber(),
+            'countryIdentifier' => $this->getCountryIdentifier(),
+        ];
+        if ($this->getCarrier() != null) {
+            $result['carrierName'] = $this->getCarrier();
+        }
+        return $result;
+    }
 }
