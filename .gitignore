@@ -1,3 +1,5 @@
 vendor/
 *.phar
 tmp/
+.tmp/
+.vagrant/
