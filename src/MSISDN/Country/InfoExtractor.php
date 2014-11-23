@@ -2,8 +2,20 @@
 
 namespace MSISDN\Country;
 
+/**
+ * Class for extracting country information from valid MSISDN numbers.
+ */
 class InfoExtractor
 {
+    /**
+     * Extracts the country code (ISO 3166-1 alpha-2) and country calling code from
+     * the input number.
+     *
+     * @throws InvalidArgumentException if there was a problem extracting the information.
+     *
+     * @param string $msisdn Valid MSISDN number without the + prefix.
+     * @return CountryInfo Extracted country information.
+     */
     public function extractCountryInfo($msisdn)
     {
         $dialingCode = [];

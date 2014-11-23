@@ -2,8 +2,20 @@
 
 namespace MSISDN;
 
+/**
+ * Implementation of parsing MSISDN numbers and extracting useful information.
+ */
 class Parser
 {
+    /**
+     * Function takes a valid MSISDN number and returns the extracted information for it.
+     *
+     * @throws LengthException if the input number is empty.
+     * @throws InvalidArgumentException if the input number is missing a prefix +.
+     *
+     * @param string $msisdn Valid MSISDN number with + prefix (eg. +38640123456).
+     * @return NumberInfo Extracted information of the input number.
+     */
     public function parseNumber($msisdn)
     {
         if (strlen($msisdn) == 0) {

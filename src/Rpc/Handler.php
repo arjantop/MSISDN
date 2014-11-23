@@ -11,8 +11,18 @@ namespace Rpc;
  */
 class Handler
 {
+    /**
+     * The parser for extracting the information from MSISDN numbers.
+     *
+     * @var \MSISDN\Parser
+     */
     private $parser;
 
+    /**
+     * Constructs a new Handler for the RPC service.
+     *
+     * @param \MSISDN\Parser
+     */
     public function __construct($parser)
     {
         $this->parser = $parser;
