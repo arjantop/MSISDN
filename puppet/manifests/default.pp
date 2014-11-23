@@ -14,6 +14,12 @@ include php
 
 class { ['php::fpm', 'php::cli', 'php::composer']: }
 
+class { 'php::extension::opcache':
+    settings => [
+        'set ".anon/opcache.enabled" "1"',
+    ]
+}
+
 exec { 'install-app':
     command => 'sh /vagrant/scripts/build.sh',
     user => 'www-data',
