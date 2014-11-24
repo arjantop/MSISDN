@@ -2,6 +2,8 @@
 
 $carrierData = 'tmp/libphonenumber-read-only/resources/carrier/en';
 
+$dstDir = 'gen/Gen/Carrier/';
+
 function parse_carriers($dialingCode, $filename)
 {
     $countryCarriers = [];
@@ -53,14 +55,28 @@ function make_fsm($data)
 
 $files = array_diff(scandir($carrierData), ['..', '.']);
 
-$carriers = [];
-
 foreach ($files as $file) {
     $dialingCode = explode('.', $file)[0];
-    $countryCarriers = parse_carriers($dialingCode, $carrierData . '/' . $file);
-    $carriers[$dialingCode] = make_fsm($countryCarriers);
-}
 
-echo file_get_contents('scripts/gen/CarrierFsm.php');
-var_export($carriers);
-echo ";\n}\n";
+    $className = 'Fsm' . $dialingCode;
+    $fileName = $dstDir . $className . '.php';
+    $handle = fopen($fileName, 'w+');
+    if (!$handle) {
+        exit("Unable to open file: $filaName");
+    }
+    $countryCarriers = parse_carriers($dialingCode, $carrierData . '/' . $file);
+    $classDefinition = <<<EOT
+<?php
+
+namespace Gen\Carrier;
+
+class $className
+{
+    public static \$fsmArray = 
+EOT;
+    fwrite($handle, $classDefinition);
+    $fsm = make_fsm($countryCarriers);
+    fwrite($handle, var_export($fsm, true));
+    fwrite($handle, ";\n}\n");
+    fclose($handle);
+}
